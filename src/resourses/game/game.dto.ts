@@ -1,21 +1,36 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-import { Decree, Features, Genders } from "src/utils/enum";
+import { Decree, Features, Genders, MissionTypes, SavingTypes } from "src/utils/enum";
 
 class Professions {
     @ApiProperty()
     prefession: string
-    @ApiProperty({ type: Decree })
+    // @ApiProperty({ type: Decree })
     decree: Decree
 }
 
 class Talents {
     @ApiProperty()
-    talent: string
+    _id: string
+
     @ApiProperty()
     luck: number
-    @ApiProperty({ enum: Features })
-    feature: Features
+    @ApiProperty({ isArray: true })
+    features: Features[]
+}
+
+export class SavingDto {
+    @ApiProperty()
+    mission: MissionTypes
+    @ApiProperty()
+    type: SavingTypes
+    @ApiProperty()
+    money: number
+    @ApiProperty()
+    rate: number
+    @ApiProperty()
+    outcome: number
+
 }
 
 
@@ -23,7 +38,7 @@ export class GameDto {
     @ApiProperty()
     age: number;
 
-    @ApiProperty({ enum: Genders })
+    // @ApiProperty({ type: Genders })
     gender: Genders
 
     @ApiProperty()
@@ -32,7 +47,7 @@ export class GameDto {
     @ApiProperty({ type: Professions })
     prefession: Professions
 
-    @ApiProperty({ type: Talents, })
+    @ApiProperty({})
     talents: Talents[]
 
 }

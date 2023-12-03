@@ -9,13 +9,13 @@ export class UserDto {
   @ApiProperty()
   @IsString()
   username: string;
-  @ApiProperty()
+  // @ApiProperty()
 
-  lastname: string;
-  @ApiProperty()
+  // lastname: string;
+  // @ApiProperty()
 
-  firstname: string;
-  @ApiProperty({ default: 'string' })
+  // firstname: string;
+  // @ApiProperty({ default: 'string' })
   @IsString()
   password: string;
 }

@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import  { Document } from 'mongoose';
-import { Genders, ItemTypes } from 'src/utils/enum';
+import { Document } from 'mongoose';
+import { Genders, ItemPriceType,  ItemTypes } from 'src/utils/enum';
 
 export type ItemDocument = Document & Item;
 
@@ -13,11 +13,17 @@ export class Item {
   name: string
   @Prop({ required: true })
   code: string
+  @Prop({ required: true })
+  price: number
+  @Prop({ enum: ItemPriceType })
+  priceDuration: ItemPriceType
+  @Prop({})
+  status: number
 
   @Prop({ enum: ItemTypes })
   type: ItemTypes
-  @Prop({ enum: Genders })
-  gender: Genders
+  @Prop({ enum: Genders, type: Array<string> })
+  gender: Genders[]
 }
 
 export const ItemSchema = SchemaFactory.createForClass(Item);

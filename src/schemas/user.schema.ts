@@ -8,10 +8,10 @@ export type UserDocument = Document & User;
 export class User {
   @Prop({ required: true, minlength: 6 })
   username: string;
-  @Prop()
-  lastname: string;
-  @Prop()
-  firstname: string;
+  // @Prop()
+  // lastname: string;
+  // @Prop()
+  // firstname: string;
 
   @Prop({ required: true })
   password: string;

@@ -14,15 +14,25 @@ export class AuthService {
   constructor(
     private usersService: UserService,
     private jwtService: JwtService,
-  ) {}
-  async signIn(username, pass) {
-
-    const user = await this.usersService.findOne(username);
-    if (user?.password !== pass) {
-      throw new UnauthorizedException();
+  ) { }
+  async signIn(dto: UserDto) {
+    let message = "Амжилттай нэвтэрлээ"
+    let user = await this.usersService.findOne(dto.username);
+    if (!user) {
+      user = await this.usersService.create(dto);
+      message = "Амжилттай бүргүүллээ"
     }
+    if (user?.password !== dto.password) {
+      return {
+        message: 'Нууц үг буруу байна',
+        success: false
+      };
+    }
+
     const payload = { username: user.username };
     return {
+      success: true,
+      message: message,
       access_token: await this.jwtService.signAsync(payload),
     };
   }

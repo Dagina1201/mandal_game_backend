@@ -10,9 +10,9 @@ export class AuthController {
   constructor(private authService: AuthService) { }
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  signIn(@Body() signInDto: LoginDto) {
-    console.log(signInDto);
-    return this.authService.signIn(signInDto.username, signInDto.password);
+  signIn(@Body() signInDto: UserDto) {
+
+    return this.authService.signIn(signInDto);
   }
 
   @Post('register')

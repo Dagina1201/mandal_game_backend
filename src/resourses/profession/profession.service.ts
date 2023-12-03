@@ -17,4 +17,11 @@ export class ProfessionService {
 
         }
     }
+    async find() {
+        try {
+            return this.model.find()
+        } catch(e) {
+
+        }
+    }
 }

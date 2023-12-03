@@ -19,6 +19,7 @@ export class Work {
   features: Features[]
   @Prop({ enum: WorkTypes })
   type: WorkTypes
+
 }
 
 export const WorkSchema = SchemaFactory.createForClass(Work);

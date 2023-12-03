@@ -16,6 +16,8 @@ export class Action {
   question: string
   @Prop({ type: Array<Answer> })
   answers: Answer[]
+  @Prop()
+  correct: number
 }
 
 export const ActionSchema = SchemaFactory.createForClass(Action);

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppGateway } from './app.gateway';
+
 import { ConfigModule } from '@nestjs/config';
 import appConfig from './config/app.config';
 import { AuthModule } from './resourses/auth/auth.module';
@@ -13,6 +13,7 @@ import { ItemModule } from './resourses/item/item.module';
 import { MessageModule } from './resourses/message/message.module';
 import { ProfessionModule } from './resourses/profession/profession.module';
 import { TalentModule } from './resourses/talent/talent.module';
+import { WorkModule } from './resourses/work/work.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -28,15 +29,16 @@ import { TalentModule } from './resourses/talent/talent.module';
     AuthModule,
     UserModule,
     ActionModule,
-    // GameModule,
-  // ItemModule,
+    GameModule,
+    ItemModule,
     MessageModule,
     ProfessionModule,
-    TalentModule
+    TalentModule,
+    WorkModule
 
-   
+
   ],
   controllers: [AppController],
-  providers: [AppGateway],
+  providers: [],
 })
-export class AppModule {}
+export class AppModule { }

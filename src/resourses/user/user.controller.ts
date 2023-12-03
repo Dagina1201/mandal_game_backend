@@ -29,7 +29,7 @@ export class UserController {
 
   @Get('me') 
   findMe(@Request() {user}) {
-    return this.service.findMe(user['_id'])
+    return user
   }
 
   @Get(':username')

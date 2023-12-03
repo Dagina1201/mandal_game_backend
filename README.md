@@ -1,3 +1,16 @@
+
+<!-- npm run start:dev гэж асаана энэ нь 
+http://localhost:5000 дэр асна  
+http://localhost:5000/docs der swagger tool ашиглаж document байгаа
+-->
+
+
+
+
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
